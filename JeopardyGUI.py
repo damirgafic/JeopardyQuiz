@@ -2,6 +2,7 @@ from tkinter import *
 from jeopardy import *
 from similar_text import similar_text
 
+# intialize main window
 root = Tk()
 
 root.configure(bg='blue')
@@ -38,11 +39,12 @@ def newWindow(question, cat, answer, button):
 
         if e.get() == answer:
             print('correct!')
-            #gPlayer.score+=
+            gPlayer.score += 1
 
         else:
             print(text)
             print('incorrect!')
+            gPlayer.score -= 1
 
         close_window()
 
@@ -63,18 +65,35 @@ def newWindow(question, cat, answer, button):
     button.grid(row=2, column=0)
 
 
+def newWindowEndGame():  # Ends the game
+    alt = Tk()
+    newWindowEnd = Toplevel(alt)
+    Label(newWindowEnd, text='Game Over!', padx=50, pady=50).pack()
+    Label(newWindowEnd, text=gPlayer.score).pack()
+    root.destroy()
+
+
+# Name question label
 nameEntry = Entry(root)
 nameEntry.grid(column=1, row=10, sticky="nsew")
 label_name = Label(root, text='Welcome what is your name?!', bg='blue', fg='black')
+
+# Name Entry Button
 button_submit = Button(root, text='submit', padx=50, pady=10,
                        border=5, highlightbackground='red', command=lambda: disableButton(button_submit, nameEntry))
 button_submit.grid(column=2, row=10, sticky="nsew")
-label_score0 = Label(root, textvariable=pName)
 
-label_score = Label(root, text=gPlayer.score)
+# Name Label
+label_score0 = Label(root, textvariable=pName)
 label_score0.grid(column=0, row=11, sticky="nsew")
 
+# Score Label
+label_score = Label(root, text=gPlayer.score)
 label_score.grid(column=1, row=11, sticky="nsew")
+
+# End game button
+button_end = Button(root, text="End Game", command=lambda: newWindowEndGame())
+button_end.grid(column=1, row=11)
 
 # category labels
 label_1 = Label(root, text=cat1.name, padx=10, pady=10, bg='blue', fg='#ebd534')
@@ -203,3 +222,4 @@ button_5d.grid(row=5, column=4, sticky="nsew")
 ##### end positioning
 
 root.mainloop()
+
