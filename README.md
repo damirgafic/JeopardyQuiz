@@ -31,4 +31,5 @@ Python 3.0 or higher
 ## Acknowledgments
 
 * Thanks to jService for the extensive number of categories and questions
+* Inspired by https://github.com/upperlinecode/jeopardy-cli-python-apis
 
