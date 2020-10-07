@@ -55,8 +55,9 @@ def newWindow(question, cat, answer, button):
     Label(newWindow,
           text=question, padx=50, pady=10, bg='blue', fg='#ebd534').grid(column=0, row=0)
     # Developer cheat##################
+    # Developer cheat##################
     Label(newWindow,
-          text=answer, padx=50, pady=10, bg='blue', fg='#ebd534').grid(column=0, row=3)
+        text=answer, padx=50, pady=10, bg='blue', fg='#ebd534').grid(column=0, row=3)
     ###########
     text = str()
     e = Entry(newWindow, textvariable=text)
@@ -76,7 +77,7 @@ def newWindowEndGame():  # Ends the game
 # Name question label
 nameEntry = Entry(root)
 nameEntry.grid(column=1, row=10, sticky="nsew")
-label_name = Label(root, text='Welcome what is your name?!', bg='blue', fg='black')
+label_name = Label(root, text='Welcome what is your name?!', bg='blue', fg='#ebd534')
 
 # Name Entry Button
 button_submit = Button(root, text='submit', padx=50, pady=10,
@@ -222,4 +223,3 @@ button_5d.grid(row=5, column=4, sticky="nsew")
 ##### end positioning
 
 root.mainloop()
-
