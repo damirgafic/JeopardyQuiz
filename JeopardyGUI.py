@@ -2,14 +2,14 @@ from tkinter import *
 from jeopardy import *
 from similar_text import similar_text
 
+gPlayer = Player('default')  # global variable
+pName = StringVar()
+
 # intialize main window
 root = Tk()
 
 root.configure(bg='blue')
 root.title('Jeopardy')
-
-gPlayer = Player('default')  # global variable
-pName = StringVar()
 
 
 def buttonClick():
@@ -57,7 +57,7 @@ def newWindow(question, cat, answer, button):
     # Developer cheat##################
     # Developer cheat##################
     Label(newWindow,
-        text=answer, padx=50, pady=10, bg='blue', fg='#ebd534').grid(column=0, row=3)
+          text=answer, padx=50, pady=10, bg='blue', fg='#ebd534').grid(column=0, row=3)
     ###########
     text = str()
     e = Entry(newWindow, textvariable=text)
